@@ -1,0 +1,29 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import base.ProjectSpecificMethod;
+
+public class LoginPage extends ProjectSpecificMethod{
+
+	public LoginPage(RemoteWebDriver driver) {
+		this.driver = driver;
+		//int num=10;
+		
+	}
+	public LoginPage enterUserName() {
+		System.out.println("LoginPage: "+ driver);
+		driver.findElement(By.id("username")).sendKeys("demosalesmanager");
+		return this;
+	}
+	public LoginPage enterPassword() {
+		driver.findElement(By.id("password")).sendKeys("crmsfa");
+		return this;
+	}
+    public WelcomePage clickLoginButton() {
+    	driver.findElement(By.className("decorativeSubmit")).click();
+    	return new WelcomePage(driver);    	
+	}
+   
+}
